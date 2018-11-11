@@ -1,4 +1,4 @@
-package com.pattern.factory_method;
+package com.creational.factory_method;
 
 public class SeaLogistics extends Logistics {
 
