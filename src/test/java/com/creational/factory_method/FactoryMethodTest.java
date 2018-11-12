@@ -11,14 +11,12 @@ public class FactoryMethodTest {
 	@Test
 	public void usingFactoryMethodPattern() {
 		// given|when
-		Transport transport1 = LogisticsFactory.choseLogistics(LogisticsType.ROAD).createTransport();
-		Transport transport2 = LogisticsFactory.choseLogistics(LogisticsType.SEA).createTransport();
+		Transport transport1 = new RoadLogistics().createTransport();
+		Transport transport2 = new SeaLogistics().createTransport();
 
 		List<Transport> usedTransports = List.of(transport1, transport2);
 
 		// then
-		usedTransports.forEach(transport -> {
-			assertThat(transport.deliver()).contains("Delivering");
-		});
+		usedTransports.forEach(transport -> assertThat(transport.deliver()).contains("Delivering"));
 	}
 }
